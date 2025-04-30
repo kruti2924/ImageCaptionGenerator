@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Caption Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>🖼️ AI-Powered Image Captioning</h1>
+
+    <div class="container">
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Upload & Generate Caption</button>
+        </form>
+
+        <div id="result">
+            <img id="uploaded-image" src="" alt="" style="display: none;">
+            <p class="caption" id="caption-text"></p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('upload-form');
+        const uploadedImg = document.getElementById('uploaded-image');
+        const captionText = document.getElementById('caption-text');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            const res = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await res.json();
+            if (data.caption && data.image_url) {
+                uploadedImg.src = data.image_url;
+                uploadedImg.style.display = 'block';
+                captionText.textContent = `📝 "${data.caption}"`;
+            } else {
+                captionText.textContent = "Error generating caption.";
+            }
+        });
+    </script>
+</body>
+</html>

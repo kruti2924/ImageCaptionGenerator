@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Caches and logs
+*.log
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Flask uploads or temporary directories
+uploads/
+
+# Python egg info
+*.egg-info/
+
+# PyInstaller
+*.spec
+
+# Render deploy cache (optional)
+.render/
+
+# Build artifacts
+build/
+dist/

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: image-caption-generator
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: python main.py
+    envVars:
+      - key: CLOUD_NAME
+        value: your_cloud_name
+      - key: CLOUD_API_KEY
+        value: your_api_key
+      - key: CLOUD_API_SECRET
+        value: your_api_secret

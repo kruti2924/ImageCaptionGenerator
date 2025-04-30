@@ -1,0 +1,7 @@
+flask
+python-dotenv
+cloudinary
+torch
+torchvision
+transformers
+pillow
