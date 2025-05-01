@@ -1,3 +1,4 @@
+transformers>=4.26.0
 flask
 python-dotenv
 cloudinary
